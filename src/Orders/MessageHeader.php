@@ -111,7 +111,7 @@ class MessageHeader
         if ($this->messageId) {
             $element->addChild("message_id", $this->messageId);
         }
-        $element->addChild("creation_date", $this->creationDate->format("Y-M-d"));
+        $element->addChild("creation_date", $this->creationDate->format("Y-m-d"));
         $element->addChild("creation_time", $this->creationDate->format("G:i:s"));
         $element->addChild("receiver", $this->receiver);
         $element->addChild("sender", $this->sender);
