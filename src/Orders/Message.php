@@ -2,50 +2,6 @@
 namespace Pilulka\Edi\Orders;
 
 
-class DocumentHeader
-{
-    const PURPOSE_INITIAL = 9;
-    const PURPOSE_CONFIRMATION = 42;
-
-    private $type;
-    private $number;
-
-    /**
-     * purpose of the order message
-     * it corresponds the "doc_function" element
-     * @var
-     */
-    private $purpose;
-
-    private $issueDateTime;
-    private $deliveryDateTime;
-    private $deliveryType;
-    private $currencyCode;
-    private $requestedTransport;
-    private $promotionDeal;
-    private $contractNumber;
-    private $referenceNumberFree;
-}
-
-class Partner
-{
-    private $partnerQualifier;
-    private $ean;
-    private $description;
-    private $name;
-    private $street;
-    private $place;
-    private $postCode;
-    private $countryCode;
-    private $companyId;
-    private $taxId;
-    private $vatId;
-    private $registration;
-    private $contactType;
-    private $contactPhone;
-    private $contactFax;
-    private $contactEmail;
-}
 
 class LineItem
 {

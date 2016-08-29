@@ -83,24 +83,31 @@ class DocumentHeader
      */
     private $partners;
 
-    public function setType($type)
-    {
-        $maxLength = 3;
-        if (strlen($type) > $maxLength) {
-            throw new \InvalidArgumentException("length of type must be <= $maxLength");
-        }
 
-        $this->type = $type;
-    }
-
-    public function setNumber($number)
+    /**
+     * @param string $number order number
+     * @param \DateTime $issueDate
+     * @param \DateTime $deliveryDate
+     */
+    public function __construct($number, \DateTime $issueDate, \DateTime $deliveryDate)
     {
         $maxLength = 15;
         if (strlen($number) > $maxLength) {
-            throw new \InvalidArgumentException("length of number string must be <= $maxLength");
+            throw new \InvalidArgumentException("length of number must be <= $maxLength");
         }
 
-        $this->number = $number;
+        $this->issueDate = $issueDate;
+        $this->deliveryDate = $issueDate;
+    }
+
+    public function enableIssueTime()
+    {
+        $this->useIssueTime = true;
+    }
+
+    public function enableDeliveryTime()
+    {
+        $this->useDeliveryTime = true;
     }
 
     public function setPurpose($purposeId)
@@ -163,7 +170,7 @@ class DocumentHeader
     public function setPromotionDeal($promotionInfo)
     {
         $maxLength = 35;
-        if (strlen($promotionInfo) > $maxLength) {
+        if (mb_strlen($promotionInfo) > $maxLength) {
             throw new \InvalidArgumentException("length of promotion deal information must be <= $maxLength");
         }
         $this->promotionDeal = $promotionInfo;
@@ -200,23 +207,5 @@ class DocumentHeader
             throw new \InvalidArgumentException("length of offer number must be <= $maxLength");
         }
         $this->referenceNumberFree = $number;
-    }
-
-    private function checkMandatoryItems()
-    {
-        $errorMessage = "";
-        if (!$this->number) {
-            $errorMessage .= "Number is mandatory, use setNumber.\n";
-        }
-        if (!$this->issueDate) {
-            $errorMessage .= "Issue data is mandatory, use setIssueDate.\n";
-        }
-        if (!$this->deliveryDate) {
-            $errorMessage .= "Delivery data is mandatory, use setIssueDate.\n";
-        }
-
-        if ($errorMessage) {
-            throw new \LogicException(trim($errorMessage));
-        }
     }
 }
