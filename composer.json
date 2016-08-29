@@ -1,0 +1,18 @@
+{
+  "name": "pilulka/edi",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Miroslav Kubelík",
+      "email": "miroslav.kubelik@pilulka.cz"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Pilulka\\Edi\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8"
+  }
+}
