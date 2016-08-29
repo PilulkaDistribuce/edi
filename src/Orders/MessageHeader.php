@@ -85,7 +85,7 @@ class MessageHeader
     {
         $errorMessage = "";
         if (!$this->creationDate) {
-            $errorMessage .= "Creation date is mandatory, use setCreationDate\n";
+            $errorMessage .= "Creation date is mandatory, use setCreationDate.\n";
         }
         if (!$this->receiver) {
             $errorMessage .= "Receiver is mandatory, use setReceiver.\n";
@@ -94,7 +94,7 @@ class MessageHeader
             $errorMessage .= "Sender is mandatory, use setSender.\n";
         }
         if ($errorMessage) {
-            throw new \LogicException($errorMessage);
+            throw new \LogicException(trim($errorMessage));
         }
     }
 

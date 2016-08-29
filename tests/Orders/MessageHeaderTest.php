@@ -23,4 +23,15 @@ XML
             ,
             $messageHeader->getXml()->asXml());
     }
+
+    /**
+     * @expectedException \LogicException
+     */
+    public function testMissingSender()
+    {
+        $messageHeader = new MessageHeader();
+        $messageHeader->setCreationDate(new \DateTime("02-10-2010 12:20:22"));
+        $messageHeader->setReceiverGLN("1234");
+        $messageHeader->getXml();
+    }
 }
