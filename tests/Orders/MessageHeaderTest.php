@@ -5,10 +5,8 @@ class MessageHeaderTest extends \PHPUnit_Framework_TestCase
 {
     public function testXmlOutput()
     {
-        $messageHeader = new MessageHeader();
-        $messageHeader->setCreationDate(new \DateTime("02-10-2010 12:20:22"));
-        $messageHeader->setReceiverGLN("1234");
-        $messageHeader->setSenderGLN("5678");
+        $messageHeader = new MessageHeader(new \DateTime("02-10-2010 12:20:22"),
+            "1234", "5678");
         $this->assertXmlStringEqualsXmlString(<<<XML
 <?xml version="1.0"?>
 <header>
@@ -22,16 +20,5 @@ class MessageHeaderTest extends \PHPUnit_Framework_TestCase
 XML
             ,
             $messageHeader->getXml()->asXml());
-    }
-
-    /**
-     * @expectedException \LogicException
-     */
-    public function testMissingSender()
-    {
-        $messageHeader = new MessageHeader();
-        $messageHeader->setCreationDate(new \DateTime("02-10-2010 12:20:22"));
-        $messageHeader->setReceiverGLN("1234");
-        $messageHeader->getXml();
     }
 }
