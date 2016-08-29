@@ -57,7 +57,7 @@ class MessageHeader
             throw new \InvalidArgumentException("length of receiver GLN must be <= $maxLength");
         }
 
-        $this->receiver;
+        $this->receiver = $receiver;
     }
 
     /**
@@ -93,7 +93,7 @@ class MessageHeader
         if (!$this->sender) {
             $errorMessage .= "Sender is mandatory, use setSender.\n";
         }
-        if (!$errorMessage) {
+        if ($errorMessage) {
             throw new \LogicException($errorMessage);
         }
     }
