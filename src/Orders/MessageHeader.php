@@ -29,7 +29,7 @@ class MessageHeader
      */
     private $testing;
 
-    public function __construct($creationDate, $receiverGLN, $senderGLN)
+    public function __construct(\DateTime $creationDate, $receiverGLN, $senderGLN)
     {
         $this->creationDate = $creationDate;
 
@@ -39,10 +39,6 @@ class MessageHeader
         }
         $this->receiver = $receiverGLN;
 
-        $maxLength = 14;
-        if (strlen($receiverGLN) > $maxLength) {
-            throw new \InvalidArgumentException("length of receiver GLN must be <= $maxLength");
-        }
         if (strlen($senderGLN) > $maxLength) {
             throw new \InvalidArgumentException("length of sender GLN must be <= $maxLength");
         }
@@ -63,7 +59,7 @@ class MessageHeader
     }
 
     /**
-     * sets the flag which means message is for testing purposes
+     * message will be used for the testing
      */
     public function setTesting()
     {
