@@ -46,7 +46,7 @@ class PartnerTest extends \PHPUnit_Framework_TestCase
 </party>
 XML
             ,
-            $partner->getXml()->asXML());
+            $partner->getXml(new \SimpleXMLElement("<party></party>"))->asXML());
     }
 
     /**

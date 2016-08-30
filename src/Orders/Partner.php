@@ -205,9 +205,8 @@ class Partner
         $this->contactEmail = $email;
     }
 
-    public function getXml()
+    public function getXml(\SimpleXMLElement $element)
     {
-        $element = new \SimpleXMLElement("<party></party>");
         $element->addChild("party_qualifier", $this->qualifier);
         $element->addChild("party_ean", $this->ean);
         if ($this->description) {
