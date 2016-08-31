@@ -24,9 +24,8 @@ class ExporterTest extends \PHPUnit_Framework_TestCase
         $this->assertFileExists("$directory/$filePrefix" . "3.xml");
 
         // clear working directory
-        /*foreach (glob("$directory/*") as $file) {
+        foreach (glob("$directory/*") as $file) {
             unlink($file);
         }
-        */
     }
 }

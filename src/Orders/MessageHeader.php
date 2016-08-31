@@ -69,9 +69,8 @@ class MessageHeader
     /**
      * @return \SimpleXMLElement
      */
-    public function getXml()
+    public function getXml(\SimpleXMLElement $element)
     {
-        $element = new \SimpleXMLElement("<header></header>");
         $element->addChild("message_type", "ORDERS");
         $element->addChild("version", "3.0.0");
         if ($this->messageId) {
