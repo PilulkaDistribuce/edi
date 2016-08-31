@@ -16,7 +16,7 @@ class LineTexts
     public function getXml(\SimpleXMLElement $collectionElement)
     {
         foreach ($this->texts as $index => $text) {
-            $text->getXml($index, $collectionElement->addChild("text"));
+            $text->getXml($index + 1, $collectionElement->addChild("text"));
         }
         return $collectionElement;
     }

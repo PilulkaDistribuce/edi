@@ -44,7 +44,7 @@ class LineText
     {
         $element->addChild("text_number", $number);
         foreach ($this->texts as $index => $text) {
-            $element->addChild("text$index", $text);
+            $element->addChild("text" . ($index + 1), $text);
         }
     }
 }
