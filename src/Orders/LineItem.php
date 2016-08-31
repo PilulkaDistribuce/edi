@@ -1,4 +1,6 @@
 <?php
+namespace Pilulka\Edi\Orders;
+
 class LineItem
 {
     const QUANTITY_TYPE_ORDERED = "21";
@@ -19,8 +21,9 @@ class LineItem
     private $articleName;
     private $supplierArticleId;
     private $buyerArticleId;
+
     /**
-     * @var stdClass
+     * @var \stdClass
      */
     private $complementaryArticle;
 
@@ -41,12 +44,38 @@ class LineItem
      */
     private $useDeliveryTime;
 
+    /**
+     * @var int
+     */
     private $expiryRemaining;
+
+    /**
+     * @var string
+     */
     private $expiryRemainingQualifier;
+
+    /**
+     * @var float
+     */
     private $grossPrice;
+    /**
+     * @var float
+     */
     private $allowanceRate;
+
+    /**
+     * @var float
+     */
     private $allowanceTotal;
+
+    /**
+     * @var float
+     */
     private $netPrice;
+
+    /**
+     * @var float
+     */
     private $totalPrice;
     private $specification;
     private $promotionDeal;
@@ -101,10 +130,10 @@ class LineItem
         $this->buyerArticleId = $id;
     }
 
-    public function addComplementaryArticle($type, $code, $description)
+    public function setComplementaryArticle($type, $code, $description)
     {
 
-        $complementaryArticle = new stdClass;
+        $complementaryArticle = new \stdClass;
         $maxLength = 3;
         if (strlen($type) > $maxLength) {
             throw new \InvalidArgumentException("length of type for complementary article must be <= $maxLength");
@@ -213,7 +242,7 @@ class LineItem
     }
 
     /**
-     * @param int $rate in percentage
+     * @param float $rate in percentage
      */
     public function setAllowanceRate($rate)
     {
@@ -295,5 +324,59 @@ class LineItem
             $complementaryElement->addChild("article_id_code", $this->complementaryArticle->code);
             $complementaryElement->addChild("article_id_description", $this->complementaryArticle->description);
         }
+        $element->addChild("quantity", $this->quantity);
+        if ($this->quantityType) {
+            $element->addChild("quantity_type", $this->quantityType);
+        }
+        if ($this->unit) {
+            $element->addChild("unit", $this->unit);
+        }
+        if ($this->numberOfUnits) {
+            $element->addChild("number_of_units", $this->numberOfUnits);
+        }
+        if ($this->deliveryDate) {
+            $element->addChild("delivery_date", $this->deliveryDate->format("Y-m-d"));
+        }
+        if ($this->useDeliveryTime) {
+            $element->addChild("delivery_time", $this->deliveryDate->format("G:i:s"));
+        }
+        if ($this->deliveryType) {
+            $element->addChild("delivery_type", $this->deliveryType);
+        }
+        if ($this->expiryRemaining) {
+            $element->addChild("expiry_remaining", $this->expiryRemaining);
+        }
+        if ($this->expiryRemainingQualifier) {
+            $element->addChild("expiry_remaining_qualifier", $this->expiryRemainingQualifier);
+        }
+        $element->addChild("article_name", $this->articleName);
+        if ($this->grossPrice) {
+            $element->addChild("gross_price", $this->grossPrice);
+        }
+        if ($this->allowanceRate) {
+            $element->addChild("allowance_rate", $this->allowanceRate);
+        }
+        if ($this->allowanceTotal) {
+            $element->addChild("allowance_total", $this->allowanceTotal);
+        }
+        if ($this->netPrice) {
+            $element->addChild("net_price", $this->netPrice);
+        }
+        if ($this->totalPrice) {
+            $element->addChild("total_price", $this->totalPrice);
+        }
+        if ($this->specification) {
+            $element->addChild("specification", $this->specification);
+        }
+        if ($this->promotionDeal) {
+            $element->addChild("promotion_deal", $this->promotionDeal);
+        }
+        if ($this->referenceNumberFree) {
+            $element->addChild("reference_number_free", $this->referenceNumberFree);
+        }
+        if ($this->freeText) {
+            $element->addChild("free_text", $this->freeText);
+        }
+        return $element;
     }
 }
