@@ -29,7 +29,7 @@ class MessageHeader
      */
     private $testing;
 
-    public function __construct(\DateTime $creationDate, $receiverGLN, $senderGLN)
+    public function __construct(\DateTime $creationDate, $receiverGLN, $senderGLN, Partner $partner)
     {
         $this->creationDate = $creationDate;
 

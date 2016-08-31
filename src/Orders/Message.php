@@ -9,19 +9,19 @@ class Message
     private $header;
 
     /**
-     * @var Partner
+     * @var DocumentHeader
      */
-    private $partner;
+    private $documentHeader;
 
     /**
      * @var LineItems
      */
     private $lineItems;
 
-    public function __construct(MessageHeader $header, Partner $partner, LineItems $items)
+    public function __construct(MessageHeader $header, DocumentHeader $documentHeader, LineItems $items)
     {
         $this->header = $header;
-        $this->partner = $partner;
+        $this->documentHeader = $documentHeader;
         $this->lineItems = $items;
     }
 
@@ -40,6 +40,6 @@ class Message
         $message = new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?><orion_message></orion_message>");
         $this->header->getXml($message->addChild("header"));
         $bodyElement = $message->addChild("body");
-        $this->$bodyElement->addChild("doc_header");
+        $this->documentHeader->getXml($bodyElement->addChild("doc_header"));
     }
 }
