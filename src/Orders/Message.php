@@ -45,6 +45,9 @@ class Message
         $this->summary = $summary;
     }
 
+    /**
+     * @return \SimpleXMLElement
+     */
     public function getXml()
     {
         $message = new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?><orion_message></orion_message>");
@@ -52,12 +55,12 @@ class Message
         $bodyElement = $message->addChild("body");
         $this->documentHeader->fillXml($bodyElement->addChild("doc_header"));
         $this->lineItems->fillXml($bodyElement->addChild("line_items"));
-        $this->lineItems->fillXml($bodyElement->addChild("line_items"));
         if ($this->texts) {
             $this->texts->fillXml($bodyElement->addChild("line_texts"));
         }
         if ($this->summary) {
             $this->summary->fillXml($bodyElement->addChild("summary"));
         }
+        return $message;
     }
 }
