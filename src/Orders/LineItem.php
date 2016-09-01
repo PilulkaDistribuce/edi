@@ -312,7 +312,7 @@ class LineItem
         $this->freeText = $text;
     }
 
-    public function getXml($number, \SimpleXMLElement $element)
+    public function fillXml($number, \SimpleXMLElement $element)
     {
         $element->addChild("item_number", $number);
         $element->addChild("article_gtin", $this->gtin);
@@ -377,6 +377,5 @@ class LineItem
         if ($this->freeText) {
             $element->addChild("free_text", $this->freeText);
         }
-        return $element;
     }
 }

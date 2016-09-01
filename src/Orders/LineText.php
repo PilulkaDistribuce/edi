@@ -40,7 +40,7 @@ class LineText
         $this->addText($text);
     }
 
-    public function getXml($number, \SimpleXMLElement $element)
+    public function fillXml($number, \SimpleXMLElement $element)
     {
         $element->addChild("text_number", $number);
         foreach ($this->texts as $index => $text) {

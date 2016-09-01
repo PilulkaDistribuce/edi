@@ -26,6 +26,8 @@ class LineItemTest extends \PHPUnit_Framework_TestCase
         $lineItem->setReferenceNumberFree("2222");
         $lineItem->setFreeText("free text");
 
+        $lineItem->fillXml(1, $xml = new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?><item></item>"));
+
         $this->assertXmlStringEqualsXmlString(<<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
@@ -58,7 +60,6 @@ class LineItemTest extends \PHPUnit_Framework_TestCase
     <free_text>free text</free_text>
 </item>
 XML
-            ,
-            $lineItem->getXml(1, new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?><item></item>"))->asXML());
+            , $xml->asXML());
     }
 }

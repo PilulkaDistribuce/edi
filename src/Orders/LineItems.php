@@ -16,7 +16,7 @@ class LineItems
     public function fillXml(\SimpleXMLElement $collectionElement)
     {
         foreach ($this->items as $index => $item) {
-            $item->getXml($index + 1, $collectionElement->addChild("item"));
+            $item->fillXMl($index + 1, $collectionElement->addChild("item"));
         }
     }
 }
