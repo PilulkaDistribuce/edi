@@ -3,16 +3,47 @@ namespace Pilulka\Edi;
 
 class Exporter
 {
+    const DEFAULT_EXTENSION = "EDI";
+
     /**
+     * destination directory for export
      * @var string
      */
     private $directory;
 
-    private $extension = "EDI";
+    /**
+     * @var string
+     */
+    private $extension = self::DEFAULT_EXTENSION;
 
+    /**
+     * @var string
+     */
+    private $ordersPrefix;
+
+    /**
+     * @param string $directory
+     */
     public function __construct($directory)
     {
+        if (!is_writable($directory)) {
+            throw new \InvalidArgumentException("directory '$directory' isn't writable");
+        }
         $this->directory = $directory;
+        $this->ordersPrefix = self::getOrdersDefaultPrefix();
+    }
+
+    final public static function getOrdersDefaultPrefix()
+    {
+        return "O" . date("Y-m-d-");
+    }
+
+    /**
+     * @param string $prefix e.g. 0201601 etc.
+     */
+    public function setOrdersFilePrefix($prefix)
+    {
+       $this->ordersPrefix = $prefix;
     }
 
     public function setExtension($ext)
@@ -20,21 +51,20 @@ class Exporter
         $this->extension = $ext;
     }
 
-    public function exportOrders(Orders\Message $orders)
+    public function exportOrders(Orders\Message $message)
     {
-        $prefix = "O" . date("Y-m-d-");
         $maxSequence = 1;
-        foreach (glob("$this->directory/$prefix" . "*.$this->extension") as $fileName) {
-            $fileName = str_replace($this->directory . "/", "", $fileName);
-            if (preg_match("/$prefix([0-9]+)\.{$this->extension}/", $fileName, $matches)) {
-                if ($matches[1] > $maxSequence) {
-                    $maxSequence = $matches[1];
-                }
-            } else {
-                trigger_error("file $fileName doesn't correspond ORDERS export filename format, delete it");
+        foreach (glob("$this->directory/$this->ordersPrefix" . "*.$this->extension") as $filePathName) {
+            $fileName = str_replace($this->directory . "/", "", $filePathName);
+            $sequence = str_replace([".$this->extension", $this->ordersPrefix], "", $fileName);
+            if ($sequence < 1) {
+                trigger_error("File $filePathName doesn't correspond ORDERS export filename format"
+                    . ", no integer sequence detected. Fix or delete this file.");
+                continue;
             }
+            $maxSequence = $sequence;
         }
 
-        touch("$this->directory/$prefix" . ($maxSequence + 1) . ".$this->extension");
+        touch("$this->directory/$this->ordersPrefix" . ($maxSequence + 1) . ".$this->extension");
     }
 }

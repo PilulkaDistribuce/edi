@@ -7,6 +7,8 @@ class MessageHeaderTest extends \PHPUnit_Framework_TestCase
     {
         $messageHeader = new MessageHeader(new \DateTime("02-10-2010 12:20:22"),
             "1234", "5678");
+        $messageHeader->fillXml($xml = new \SimpleXMLElement("<header></header>"));
+
         $this->assertXmlStringEqualsXmlString(<<<XML
 <?xml version="1.0"?>
 <header>
@@ -19,6 +21,6 @@ class MessageHeaderTest extends \PHPUnit_Framework_TestCase
 </header>
 XML
             ,
-            $messageHeader->getXml()->asXml());
+            $xml->asXML());
     }
 }

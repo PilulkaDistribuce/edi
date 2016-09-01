@@ -15,6 +15,8 @@ class LineTextsTest extends \PHPUnit_Framework_TestCase
         $texts->addText($text1);
         $texts->addText($text2);
 
+        $texts->fillXml($xml = new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+            . "<line_texts></line_texts>"));
         $this->assertXmlStringEqualsXmlString(<<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <line_texts>
@@ -31,7 +33,6 @@ class LineTextsTest extends \PHPUnit_Framework_TestCase
 </line_texts> 
 XML
             ,
-            $texts->getXml(new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-                . "<line_texts></line_texts>"))->asXML());
+            $xml->asXML());
     }
 }

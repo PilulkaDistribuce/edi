@@ -5,8 +5,11 @@ class DocumentHeaderTest extends \PHPUnit_Framework_TestCase
 {
     public function testXmlOutput()
     {
+        $partner = new Partner(Partner::QUALIFIER_BUYER, "8594010120008");
+        $partner->setDescription("testing description");
+
         $documentHeader = new DocumentHeader("201188591", new \DateTime("2013-11-01"),
-            new \DateTime("2013-11-04 10:15:00"));
+            new \DateTime("2013-11-04 10:15:00"), $partner);
         $documentHeader->enableDeliveryTime();
         $documentHeader->setType("220");
         $documentHeader->setPurpose(DocumentHeader::PURPOSE_INITIAL);
@@ -18,9 +21,7 @@ class DocumentHeaderTest extends \PHPUnit_Framework_TestCase
         $documentHeader->setOfferNumber("OFFER21");
         $documentHeader->setFreeReferenceNumber("REF33");
 
-        $partner = new Partner(Partner::QUALIFIER_BUYER, "8594010120008");
-        $partner->setDescription("testing description");
-
+        $documentHeader->fillXml($xml = new \SimpleXMLElement("<doc_header></doc_header>"));
         $this->assertXmlStringEqualsXmlString(<<<XML
 <?xml version="1.0"?>
 <doc_header>
@@ -45,6 +46,6 @@ class DocumentHeaderTest extends \PHPUnit_Framework_TestCase
 </doc_header>
 XML
             ,
-            $documentHeader->getXml(new \SimpleXMLElement("<doc_header></doc_header>"), $partner)->asXML());
+            $xml->asXML());
     }
 }

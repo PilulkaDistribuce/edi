@@ -22,6 +22,8 @@ class PartnerTest extends \PHPUnit_Framework_TestCase
         $partner->setContactPhone("+420 123 456 789");
         $partner->setContactFax("+420 123 456 710");
         $partner->setContactEmail("pavel.dvorak@mikel.cz");
+
+        $partner->fillXml($xml = new \SimpleXMLElement("<party></party>"));
         $this->assertXmlStringEqualsXmlString(<<<XML
 <?xml version="1.0"?>
 <party>
@@ -46,7 +48,7 @@ class PartnerTest extends \PHPUnit_Framework_TestCase
 </party>
 XML
             ,
-            $partner->getXml(new \SimpleXMLElement("<party></party>"))->asXML());
+            $xml->asXML());
     }
 
     /**

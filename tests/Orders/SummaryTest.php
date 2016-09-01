@@ -14,6 +14,9 @@ class SummaryTest extends \PHPUnit_Framework_TestCase
         $summary->setNumberOfItems(3);
         $summary->setNumberOfTexts(3);
 
+        $summary->fillXml($xml = new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+            . "<summary></summary>"));
+
         $this->assertXmlStringEqualsXmlString(<<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <summary>
@@ -25,7 +28,6 @@ class SummaryTest extends \PHPUnit_Framework_TestCase
 </summary>
 XML
             ,
-            $summary->getXml(new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-                . "<summary></summary>"))->asXML());
+            $xml->asXML());
     }
 }

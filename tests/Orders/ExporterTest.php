@@ -1,31 +1,43 @@
 <?php
 namespace Pilulka\Edi\Orders;
 
-
 class ExporterTest extends \PHPUnit_Framework_TestCase
 {
+    private $workingDirectory;
+
+    public function setUp()
+    {
+        $this->workingDirectory = __DIR__ . "/../fixtures/exportDir";
+        parent::setUp();
+    }
+
+    private function clearWorkingDirectory()
+    {
+        foreach (glob("$this->workingDirectory/*") as $file) {
+            unlink($file);
+        }
+    }
+
     public function testExport()
     {
-        $directory = __DIR__ . "/../fixtures/exportDir";
-        // clear working directory
-        foreach (glob("$directory/*") as $file) {
-            unlink($file);
-        }
-
+        $this->clearWorkingDirectory();
         // generates some files as previously exported order files
-        $filePrefix = "/O" . date("Y-m-d-");
-        touch("$directory/$filePrefix" . "1.xml");
-        touch("$directory/$filePrefix" . "2.xml");
+        $filePrefix = \Pilulka\Edi\Exporter::getOrdersDefaultPrefix();
+        $fileExtension = \Pilulka\Edi\Exporter::DEFAULT_EXTENSION;
+        touch("$this->workingDirectory/$filePrefix" . "1.$fileExtension");
+        touch("$this->workingDirectory/$filePrefix" . "2.$fileExtension");
 
-        $exporter = new \Pilulka\Edi\Exporter($directory);
-        $exporter->setExtension("xml");
-        $exporter->exportOrders(new Message());
+        $messageStub = $this->getMockBuilder('\Pilulka\Edi\Orders\Message')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $messageStub->method("getXml")->willReturn(
+            new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?><orion_message></orion_message>"));
 
-        $this->assertFileExists("$directory/$filePrefix" . "3.xml");
+        $exporter = new \Pilulka\Edi\Exporter($this->workingDirectory);
+        $exporter->exportOrders($messageStub);
 
-        // clear working directory
-        foreach (glob("$directory/*") as $file) {
-            unlink($file);
-        }
+        $this->assertFileExists("$this->workingDirectory/$filePrefix" . "3.$fileExtension");
+
+        $this->clearWorkingDirectory();
     }
 }
