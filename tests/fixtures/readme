@@ -1,0 +1,2 @@
+This directory is for test fixtures. It also works as temporary directory for some tests.
+So it must be writable for tests execution process.
