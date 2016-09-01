@@ -7,7 +7,11 @@ class ExporterTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->workingDirectory = __DIR__ . "/../fixtures/exportDir";
+        $workingDirectory = __DIR__ . "/../fixtures/exportDir";
+        if (!file_exists($workingDirectory) && !mkdir($workingDirectory)) {
+            throw new RuntimeException("cannot create directory '$workingDirectory', check permissions") ;
+        }
+        $this->workingDirectory = $workingDirectory;
         parent::setUp();
     }
 
@@ -21,6 +25,7 @@ class ExporterTest extends \PHPUnit_Framework_TestCase
     public function testExport()
     {
         $this->clearWorkingDirectory();
+
         // generates some files as previously exported order files
         $filePrefix = \Pilulka\Edi\Exporter::getOrdersDefaultPrefix();
         $fileExtension = \Pilulka\Edi\Exporter::DEFAULT_EXTENSION;
