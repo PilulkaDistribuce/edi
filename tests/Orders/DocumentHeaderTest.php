@@ -7,9 +7,11 @@ class DocumentHeaderTest extends \PHPUnit_Framework_TestCase
     {
         $partner = new Partner(Partner::QUALIFIER_BUYER, "8594010120008");
         $partner->setDescription("testing description");
+        $partners = new Partners();
+        $partners->addPartner($partner);
 
         $documentHeader = new DocumentHeader("201188591", new \DateTime("2013-11-01"),
-            new \DateTime("2013-11-04 10:15:00"), $partner);
+            new \DateTime("2013-11-04 10:15:00"), $partners);
         $documentHeader->enableDeliveryTime();
         $documentHeader->setType("220");
         $documentHeader->setPurpose(DocumentHeader::PURPOSE_INITIAL);

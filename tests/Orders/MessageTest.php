@@ -12,11 +12,15 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $lineItems = new LineItems();
         $lineItems->addItem($lineItem);
 
+        $partner = new Partner(Partner::QUALIFIER_BUYER, "8594010120008");
+        $partners = new Partners();
+        $partners->addPartner($partner);
+
         $message = new Message(new MessageHeader(new \DateTime("02-10-2010 12:20:22"),
             "1234", "5678"),
             new DocumentHeader("201188591", new \DateTime("2013-11-01"),
                 new \DateTime("2013-11-04 10:15:00"),
-                new Partner(Partner::QUALIFIER_BUYER, "8594010120008")),
+                $partners),
             $lineItems);
 
         $this->assertXmlStringEqualsXmlString(<<<XML

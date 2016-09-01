@@ -87,9 +87,9 @@ class DocumentHeader
      * @param string $number order number
      * @param \DateTime $issueDate
      * @param \DateTime $deliveryDate
-     * @param Partner $partner
+     * @param Partners $partners
      */
-    public function __construct($number, \DateTime $issueDate, \DateTime $deliveryDate, Partner $partner)
+    public function __construct($number, \DateTime $issueDate, \DateTime $deliveryDate, Partners $partners)
     {
         $maxLength = 15;
         if (strlen($number) > $maxLength) {
@@ -99,7 +99,7 @@ class DocumentHeader
         $this->number = $number;
         $this->issueDate = $issueDate;
         $this->deliveryDate = $deliveryDate;
-        $this->partner = $partner;
+        $this->partners = $partners;
     }
 
     public function enableIssueTime()
@@ -246,6 +246,6 @@ class DocumentHeader
         if ($this->offerNumber) $element->addChild("offer_number_supplier", $this->offerNumber);
         if ($this->referenceNumberFree) $element->addChild("reference_number_free", $this->referenceNumberFree);
 
-        $this->partner->fillXml($element->addChild("party"));
+        $this->partners->fillXml($element);
     }
 }
