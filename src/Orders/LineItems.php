@@ -13,11 +13,10 @@ class LineItems
         $this->items[] = $item;
     }
 
-    public function getXml(\SimpleXMLElement $collectionElement)
+    public function fillXml(\SimpleXMLElement $collectionElement)
     {
         foreach ($this->items as $index => $item) {
             $item->getXml($index + 1, $collectionElement->addChild("item"));
         }
-        return $collectionElement;
     }
 }

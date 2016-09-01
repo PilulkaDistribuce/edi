@@ -69,7 +69,7 @@ class MessageHeader
     /**
      * @return \SimpleXMLElement
      */
-    public function getXml(\SimpleXMLElement $element)
+    public function fillXml(\SimpleXMLElement $element)
     {
         $element->addChild("message_type", "ORDERS");
         $element->addChild("version", "3.0.0");
@@ -83,7 +83,5 @@ class MessageHeader
         if ($this->testing) {
             $element->addChild("test_flat", 1);
         }
-
-        return $element;
     }
 }

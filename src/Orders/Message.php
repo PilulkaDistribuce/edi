@@ -18,6 +18,16 @@ class Message
      */
     private $lineItems;
 
+    /**
+     * @var LineTexts
+     */
+    private $texts;
+
+    /**
+     * @var Summary
+     */
+    private $summary;
+
     public function __construct(MessageHeader $header, DocumentHeader $documentHeader, LineItems $items)
     {
         $this->header = $header;
@@ -38,8 +48,16 @@ class Message
     public function getXml()
     {
         $message = new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?><orion_message></orion_message>");
-        $this->header->getXml($message->addChild("header"));
+        $this->header->fillXml($message->addChild("header"));
         $bodyElement = $message->addChild("body");
-        $this->documentHeader->getXml($bodyElement->addChild("doc_header"));
+        $this->documentHeader->fillXml($bodyElement->addChild("doc_header"));
+        $this->lineItems->fillXml($bodyElement->addChild("line_items"));
+        $this->lineItems->fillXml($bodyElement->addChild("line_items"));
+        if ($this->texts) {
+            $this->texts->fillXml($bodyElement->addChild("line_texts"));
+        }
+        if ($this->summary) {
+            $this->summary->fillXml($bodyElement->addChild("summary"));
+        }
     }
 }

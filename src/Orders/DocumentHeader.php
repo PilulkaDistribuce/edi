@@ -229,7 +229,7 @@ class DocumentHeader
         $this->referenceNumberFree = $number;
     }
 
-    public function getXml(\SimpleXMLElement $element)
+    public function fillXml(\SimpleXMLElement $element)
     {
         if ($this->type) $element->addChild("doc_type", $this->type);
         $element->addChild("doc_number", $this->number);
@@ -246,7 +246,6 @@ class DocumentHeader
         if ($this->offerNumber) $element->addChild("offer_number_supplier", $this->offerNumber);
         if ($this->referenceNumberFree) $element->addChild("reference_number_free", $this->referenceNumberFree);
 
-        $this->partner->getXml($element->addChild("party"));
-        return $element;
+        $this->partner->fillXml($element->addChild("party"));
     }
 }

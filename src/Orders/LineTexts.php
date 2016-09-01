@@ -13,12 +13,11 @@ class LineTexts
         $this->texts[] = $text;
     }
 
-    public function getXml(\SimpleXMLElement $collectionElement)
+    public function fillXml(\SimpleXMLElement $collectionElement)
     {
         foreach ($this->texts as $index => $text) {
             $text->getXml($index + 1, $collectionElement->addChild("text"));
         }
-        return $collectionElement;
     }
 }
 

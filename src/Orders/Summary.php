@@ -94,7 +94,7 @@ class Summary
         $this->numberOfTexts = $count;
     }
 
-    public function getXml(\SimpleXMLElement $element)
+    public function fillXml(\SimpleXMLElement $element)
     {
         if ($this->priceOrdered) {
             $element->addChild("price_ordered", $this->priceOrdered);
@@ -114,7 +114,6 @@ class Summary
         if ($this->numberOfTexts) {
             $element->addChild("number_of_texts", $this->numberOfTexts);
         }
-        return $element;
     }
 }
 
