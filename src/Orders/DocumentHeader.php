@@ -141,12 +141,6 @@ class DocumentHeader
         $this->useIssueTime = $useTime;
     }
 
-    public function setDeliveryDate(\DateTime $date, $useTime = false)
-    {
-        $this->deliveryDate = $date;
-        $this->useDeliveryTime = $useTime;
-    }
-
     /**
      * @param string $purposeId one of the DELIVERY_DATE_PURPOSE* constants
      */
