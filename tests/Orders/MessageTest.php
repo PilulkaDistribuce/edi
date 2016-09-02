@@ -59,4 +59,30 @@ class MessageTest extends \PHPUnit_Framework_TestCase
 XML
             , $message->getXml()->asXML());
     }
+
+    public function testOriginalExampleXml()
+    {
+        $messageHeader = new MessageHeader(new \DateTime("2013-11-01 12:43:00"), "8594010260001", "8594010120008");
+
+        $buyer = new Partner(Partner::QUALIFIER_BUYER, "8594010120008");
+        $buyer->setName("MIKEL a.s.");
+        $buyer->setStreet("Drhova 50");
+        $buyer->setPlace("Brno");
+        $buyer->setPostCode("625 00");
+        $buyer->setCountryCode("CZ");
+        $buyer->setCountryName("Česká republika");
+        $buyer->setCompanyId(38412458);
+        $buyer->setTaxId(38412458);
+        $buyer->setVatId("CZ38412458");
+        $buyer->setRegistration("Společnost zapsána u MS v Praze odd. b vl. 8647");
+        $buyer->setRegistration("Společnost zapsána u MS v Praze odd. b vl. 8647");
+        $buyer->setContactType("Účtárna");
+        $buyer->setContactName("Pavel Dvořák");
+        $buyer->setContactPhone("+420 541 328 111");
+        $buyer->setContactFax("+420 541 328 112");
+        $buyer->setContactEmail("pavel.dvorak@mikelas.cz");
+        $buyer->setContactEmail("pavel.dvorak@mikelas.cz");
+
+        $
+    }
 }
