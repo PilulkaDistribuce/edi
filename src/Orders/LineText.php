@@ -12,9 +12,8 @@ class LineText
 
     private function addText($text)
     {
-
         $maxLength = 70;
-        if (strlen($text) > $maxLength) {
+        if (mb_strlen($text) > $maxLength) {
             throw new \InvalidArgumentException("length of text must be <= $maxLength");
         }
         $this->texts[] = $text;

@@ -231,20 +231,42 @@ class DocumentHeader
 
     public function fillXml(\SimpleXMLElement $element)
     {
-        if ($this->type) $element->addChild("doc_type", $this->type);
+        if ($this->type) {
+            $element->addChild("doc_type", $this->type);
+        }
         $element->addChild("doc_number", $this->number);
-        if ($this->purpose) $element->addChild("doc_function", $this->purpose);
+        if ($this->purpose) {
+            $element->addChild("doc_function", $this->purpose);
+        }
         $element->addChild("doc_date_of_issue", $this->issueDate->format("Y-m-d"));
-        if ($this->useIssueTime) $element->addChild("doc_time_of_issue", $this->issueDate->format("G:i:s"));
+        if ($this->useIssueTime) {
+            $element->addChild("doc_time_of_issue", $this->issueDate->format("G:i:s"));
+        }
         $element->addChild("delivery_date", $this->deliveryDate->format("Y-m-d"));
-        if ($this->useDeliveryTime) $element->addChild("delivery_time", $this->deliveryDate->format("G:i:s"));
-        if ($this->deliveryDatePurpose) $element->addChild("delivery_type", $this->deliveryDatePurpose);
-        if ($this->currencyCode) $element->addChild("currency_code", $this->currencyCode);
-        if ($this->transportMode) $element->addChild("transport_mode", $this->transportMode);
-        if ($this->promotionDeal) $element->addChild("promotion_deal", $this->promotionDeal);
-        if ($this->contractNumber) $element->addChild("contract_number", $this->contractNumber);
-        if ($this->offerNumber) $element->addChild("offer_number_supplier", $this->offerNumber);
-        if ($this->referenceNumberFree) $element->addChild("reference_number_free", $this->referenceNumberFree);
+        if ($this->useDeliveryTime) {
+            $element->addChild("delivery_time", $this->deliveryDate->format("G:i:s"));
+        }
+        if ($this->deliveryDatePurpose) {
+            $element->addChild("delivery_type", $this->deliveryDatePurpose);
+        }
+        if ($this->currencyCode) {
+            $element->addChild("currency_code", $this->currencyCode);
+        }
+        if ($this->transportMode) {
+            $element->addChild("transport_mode", $this->transportMode);
+        }
+        if ($this->promotionDeal) {
+            $element->addChild("promotion_deal", $this->promotionDeal);
+        }
+        if ($this->contractNumber) {
+            $element->addChild("contract_number", $this->contractNumber);
+        }
+        if ($this->offerNumber) {
+            $element->addChild("offer_number_supplier", $this->offerNumber);
+        }
+        if ($this->referenceNumberFree) {
+            $element->addChild("reference_number_free", $this->referenceNumberFree);
+        }
 
         $this->partners->fillXml($element);
     }
