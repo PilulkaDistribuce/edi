@@ -83,7 +83,7 @@ XML
         $partners->addPartner($buyer);
 
         $supplier = new Partner(Partner::QUALIFIER_SUPPLIER, "8594010260001");
-        $supplier->setName("Top Tea s.r.o");
+        $supplier->setName("Top Tea s.r.o.");
         $supplier->setStreet("Baškovská 50");
         $supplier->setPlace("Praha");
         $supplier->setPostCode("155 00");
@@ -201,7 +201,7 @@ XML
         $message->setSummary($summary);
 
         $this->assertXmlStringEqualsXmlString(
-            (new \SimpleXMLElement(__DIR__ . "../fixtures/orders_v3_example.xml"))->asXML(),
+            (new \SimpleXMLElement(__DIR__ . "/../fixtures/orders_v3_example.xml", 0, true))->asXML(),
             $message->getXml()->asXML());
     }
 }

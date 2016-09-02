@@ -78,7 +78,7 @@
         <article_gtin>8594000000204</article_gtin>
         <article_id_supplier>290000000</article_id_supplier>
         <article_id_buyer>54120089</article_id_buyer>
-        <quantity>30.000</quantity>
+        <quantity>30</quantity>
         <quantity_type>21</quantity_type>
         <unit>PCE</unit>
         <delivery_date>2013-11-04</delivery_date>
@@ -87,83 +87,83 @@
         <expiry_remaining>14</expiry_remaining>
         <expiry_remaining_qualifier>804</expiry_remaining_qualifier>
         <article_name>Ovocný čaj pomeranč 50g</article_name>
-        <gross_price>10.00</gross_price>
-        <allowance_rate>10.000</allowance_rate>
-        <allowance_total>1.00</allowance_total>
-        <net_price>9.00</net_price>
-        <total_price>270.000</total_price>
+        <gross_price>10</gross_price>
+        <allowance_rate>10</allowance_rate>
+        <allowance_total>1</allowance_total>
+        <net_price>9</net_price>
+        <total_price>270</total_price>
       </item>
       <item>
         <item_number>2</item_number>
         <article_gtin>8594000000259</article_gtin>
         <article_id_supplier>290000025</article_id_supplier>
         <article_id_buyer>584148</article_id_buyer>
-        <quantity>20.000</quantity>
+        <quantity>20</quantity>
         <quantity_type>21</quantity_type>
         <unit>PCE</unit>
         <delivery_date>2013-11-04</delivery_date>
         <delivery_time>10:15:00</delivery_time>
         <delivery_type>2</delivery_type>
         <article_name>Ovocný čaj brusinka 50g</article_name>
-        <gross_price>12.00</gross_price>
-        <allowance_rate>0.000</allowance_rate>
-        <allowance_total>0.00</allowance_total>
-        <net_price>12.00</net_price>
-        <total_price>240.000</total_price>
+        <gross_price>12</gross_price>
+        <allowance_rate>0</allowance_rate>
+        <allowance_total>0</allowance_total>
+        <net_price>12</net_price>
+        <total_price>240</total_price>
       </item>
       <item>
         <item_number>3</item_number>
         <article_gtin>8594000000389</article_gtin>
         <article_id_supplier>290000038</article_id_supplier>
         <article_id_buyer>584742</article_id_buyer>
-        <quantity>30.000</quantity>
+        <quantity>30</quantity>
         <quantity_type>21</quantity_type>
         <unit>PCE</unit>
         <delivery_date>2013-11-04</delivery_date>
         <delivery_time>10:15:00</delivery_time>
         <delivery_type>2</delivery_type>
         <article_name>Ovocný čaj máta 50g</article_name>
-        <gross_price>10.00</gross_price>
-        <allowance_rate>0.000</allowance_rate>
-        <allowance_total>0.00</allowance_total>
-        <net_price>10.00</net_price>
-        <total_price>300.000</total_price>
+        <gross_price>10</gross_price>
+        <allowance_rate>0</allowance_rate>
+        <allowance_total>0</allowance_total>
+        <net_price>10</net_price>
+        <total_price>300</total_price>
       </item>
       <item>
         <item_number>4</item_number>
         <article_gtin>8594000000419</article_gtin>
         <article_id_supplier>290000041</article_id_supplier>
         <article_id_buyer>584469</article_id_buyer>
-        <quantity>10.000</quantity>
+        <quantity>10</quantity>
         <quantity_type>21</quantity_type>
         <unit>PCE</unit>
         <delivery_date>2013-11-04</delivery_date>
         <delivery_time>10:15:00</delivery_time>
         <delivery_type>2</delivery_type>
         <article_name>Ovocný čaj šípek 100g</article_name>
-        <gross_price>10.00</gross_price>
-        <allowance_rate>13.000</allowance_rate>
+        <gross_price>10</gross_price>
+        <allowance_rate>13</allowance_rate>
         <allowance_total>1.30</allowance_total>
         <net_price>8.70</net_price>
-        <total_price>87.000</total_price>
+        <total_price>87</total_price>
       </item>
       <item>
         <item_number>5</item_number>
         <article_gtin>8594000000525</article_gtin>
         <article_id_supplier>290000052</article_id_supplier>
         <article_id_buyer>584644</article_id_buyer>
-        <quantity>5.000</quantity>
+        <quantity>5</quantity>
         <quantity_type>21</quantity_type>
         <unit>PCE</unit>
         <delivery_date>2013-11-04</delivery_date>
         <delivery_time>10:15:00</delivery_time>
         <delivery_type>2</delivery_type>
         <article_name>Černý čaj černý bez 150g</article_name>
-        <gross_price>11.00</gross_price>
-        <allowance_rate>0.000</allowance_rate>
-        <allowance_total>0.00</allowance_total>
-        <net_price>11.00</net_price>
-        <total_price>55.000</total_price>
+        <gross_price>11</gross_price>
+        <allowance_rate>0</allowance_rate>
+        <allowance_total>0</allowance_total>
+        <net_price>11</net_price>
+        <total_price>55</total_price>
       </item>
     </line_items>
     <line_texts>
@@ -174,8 +174,8 @@
       </text>
     </line_texts>
     <summary>
-      <price_ordered>952.00</price_ordered>
-      <items_price>952.00</items_price>
+      <price_ordered>952</price_ordered>
+      <items_price>952</items_price>
       <number_of_items>5</number_of_items>
       <number_of_texts>1</number_of_texts>
     </summary>
