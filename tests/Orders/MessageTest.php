@@ -115,6 +115,7 @@ XML
 
         $documentHeader = new DocumentHeader(201188591, new \DateTime("2013-11-01 12:35:10"),
             new \DateTime("2013-11-04 10:15:00"), $partners);
+        $documentHeader->setType(220);
         $documentHeader->enableDeliveryTime();
         $documentHeader->enableIssueTime();
         $documentHeader->setPurpose(DocumentHeader::PURPOSE_INITIAL);
@@ -182,10 +183,9 @@ XML
         $lineItem->setTotalPrice(55);
         $lineItems->addItem($lineItem);
 
-        $message = new Message(new MessageHeader(new \DateTime("2013-11-01 12:43:00"),
-            "8594010260001", "8594010120008"),
-            $documentHeader,
-            $lineItems);
+        $messageHeader = new MessageHeader(new \DateTime("2013-11-01 12:43:00"), "8594010260001", "8594010120008");
+        $messageHeader->setMessageId("201188591");
+        $message = new Message($messageHeader, $documentHeader, $lineItems);
 
         $lineText = new LineText("Domluven výnos do 1. patra");
         $lineText->setText2("Parkoviště a zadní vchod z ulice Rudná");

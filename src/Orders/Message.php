@@ -50,7 +50,7 @@ class Message
      */
     public function getXml()
     {
-        $message = new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?><orion_message></orion_message>");
+        $message = new \SimpleXMLElement("<?xml version=\"1.0\" encoding=\"utf-8\"?><orion_message></orion_message>");
         $this->header->fillXml($message->addChild("header"));
         $bodyElement = $message->addChild("body");
         $this->documentHeader->fillXml($bodyElement->addChild("doc_header"));

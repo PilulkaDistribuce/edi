@@ -222,7 +222,7 @@ class Partner
             $element->addChild("place", $this->place);
         }
         if ($this->postCode) {
-            $element->addChild("postCode", $this->postCode);
+            $element->addChild("postcode", $this->postCode);
         }
         if ($this->countryCode) {
             $element->addChild("country_code", $this->countryCode);

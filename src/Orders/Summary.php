@@ -99,6 +99,9 @@ class Summary
         if ($this->priceOrdered) {
             $element->addChild("price_ordered", $this->priceOrdered);
         }
+        if ($this->itemsPrice) {
+            $element->addChild("items_price", $this->itemsPrice);
+        }
         if ($this->totalAllowanceRate) {
             $element->addChild("total_allowance_rate", $this->totalAllowanceRate);
         }
