@@ -23,7 +23,6 @@ $doc->formatOutput = true;
 $xml = $doc->saveXML();
 // adjust price elements: 50.000 => 50
 $xml = preg_replace("/(quantity|price_ordered|price|rate|total)>([0-9]+)\.0+</", "$1>$2<", $xml);
-$xml = preg_replace("/<allowance_rate>0</allowance_rate>/", "", $xml);
-$xml = preg_replace("/<allowance_total>0</allowance_total>/", "", $xml);
+$xml = preg_replace("/<allowance_rate>0<\/allowance_rate>/", "", $xml);
+$xml = preg_replace("/<allowance_total>0<\/allowance_total>/", "", $xml);
 file_put_contents($xmlFile, $xml);
-
