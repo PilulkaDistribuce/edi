@@ -89,12 +89,10 @@ XML
         $supplier->setPostCode("155 00");
         $supplier->setCountryCode("CZ");
         $supplier->setCountryName("Česká republika");
-        $supplier->setCompanyId(47112458);
         $supplier->setTaxId(47112458);
         $supplier->setVatId("CZ47112458");
-        $supplier->setRegistration("Společnost zapsána u MS v Praze odd. b vl. 8647");
         $supplier->setContactType("Sklad");
-        $supplier->setContactName("Marie Výchová");
+        $supplier->setContactName("Marie Víchová");
         $supplier->setContactPhone("+420 223 415 112");
         $supplier->setContactEmail("marie.vichova@kolonia.cz");
         $partners->addPartner($supplier);
@@ -148,14 +146,26 @@ XML
         $lineItem->setISOQuantityUnit("PCE");
         $lineItem->setDeliveryDate(new \DateTime("2013-11-04 10:15:00"), true);
         $lineItem->setDeliveryType(LineItem::DELIVERY_TYPE_DELIVERY);
-        $lineItem->setGrossPrice(10);
+        $lineItem->setGrossPrice(12);
         $lineItem->setAllowanceRate(0);
         $lineItem->setAllowanceTotal(0);
+        $lineItem->setNetPrice(12);
+        $lineItem->setTotalPrice(240);
+        $lineItems->addItem($lineItem);
+
+        $lineItem = new LineItem("8594000000389", 30, "Ovocný čaj máta 50g");
+        $lineItem->setSupplierArticleId("290000038");
+        $lineItem->setBuyerArticleId("584742");
+        $lineItem->setQuantityType(LineItem::QUANTITY_TYPE_ORDERED);
+        $lineItem->setISOQuantityUnit("PCE");
+        $lineItem->setDeliveryDate(new \DateTime("2013-11-04 10:15:00"), true);
+        $lineItem->setDeliveryType(LineItem::DELIVERY_TYPE_DELIVERY);
+        $lineItem->setGrossPrice(10);
         $lineItem->setNetPrice(10);
         $lineItem->setTotalPrice(300);
         $lineItems->addItem($lineItem);
 
-        $lineItem = new LineItem("8594000000419", 21, "Ovocný čaj šípek 100g");
+        $lineItem = new LineItem("8594000000419", 10, "Ovocný čaj šípek 100g");
         $lineItem->setSupplierArticleId("290000041");
         $lineItem->setBuyerArticleId("584469");
         $lineItem->setQuantityType(LineItem::QUANTITY_TYPE_ORDERED);

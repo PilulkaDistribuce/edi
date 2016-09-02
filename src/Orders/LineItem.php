@@ -322,6 +322,18 @@ class LineItem
         $this->freeText = $text;
     }
 
+    /**
+     * @param float $price
+     * @return string
+     */
+    private static function formatPrice($price)
+    {
+        if ((int)($price * 100) !== (int)$price * 100) {
+            return number_format($price, 2, ".", "");
+        }
+        return $price;
+    }
+
     public function fillXml($number, \SimpleXMLElement $element)
     {
         $element->addChild("item_number", $number);
@@ -361,19 +373,19 @@ class LineItem
         }
         $element->addChild("article_name", $this->articleName);
         if ($this->grossPrice) {
-            $element->addChild("gross_price", $this->grossPrice);
+            $element->addChild("gross_price", self::formatPrice($this->grossPrice));
         }
         if ($this->allowanceRate) {
-            $element->addChild("allowance_rate", $this->allowanceRate);
+            $element->addChild("allowance_rate", self::formatPrice($this->allowanceRate));
         }
         if ($this->allowanceTotal) {
-            $element->addChild("allowance_total", $this->allowanceTotal);
+            $element->addChild("allowance_total", self::formatPrice($this->allowanceTotal));
         }
         if ($this->netPrice) {
-            $element->addChild("net_price", $this->netPrice);
+            $element->addChild("net_price", self::formatPrice($this->netPrice));
         }
         if ($this->totalPrice) {
-            $element->addChild("total_price", $this->totalPrice);
+            $element->addChild("total_price", self::formatPrice($this->totalPrice));
         }
         if ($this->specification) {
             $element->addChild("specification", $this->specification);
