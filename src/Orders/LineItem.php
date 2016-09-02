@@ -130,9 +130,13 @@ class LineItem
         $this->buyerArticleId = $id;
     }
 
+    /**
+     * @param string $type
+     * @param string $code
+     * @param string $description
+     */
     public function setComplementaryArticle($type, $code, $description)
     {
-
         $complementaryArticle = new \stdClass;
         $maxLength = 3;
         if (strlen($type) > $maxLength) {
@@ -185,14 +189,18 @@ class LineItem
         $this->numberOfUnits = $number;
     }
 
-    public function setDeliveryDate(\DateTime $date, $useTime = false)
+    /**
+     * @param \DateTime $date
+     * @param bool $enableTime enable/disable usage of time part from the "date" parameter
+     */
+    public function setDeliveryDate(\DateTime $date, $enableTime = false)
     {
         $this->deliveryDate = $date;
-        $this->useDeliveryTime = $useTime;
+        $this->useDeliveryTime = $enableTime;
     }
 
     /**
-     * @param string $type
+     * @param string $type one of the DELIVERY_TYPE* constants
      */
     public function setDeliveryType($type)
     {
@@ -218,15 +226,17 @@ class LineItem
         $this->expiryRemaining = $units;
     }
 
+    /**
+     * @param int $qualifier one of the EXPIRY_REMAINING_QUALIFIER_* constants
+     */
     public function setExpiryRemainingQualifier($qualifier)
     {
-        $qualifiers = [
+        if (!in_array($qualifier, $qualifiers = [
             self::EXPIRY_REMAINING_QUALIFIER_YEAR,
             self::EXPIRY_REMAINING_QUALIFIER_MONTH,
             self::EXPIRY_REMAINING_QUALIFIER_DAY,
             self::EXPIRY_REMAINING_QUALIFIER_HOUR
-        ];
-        if (!in_array($qualifier, $qualifiers)) {
+        ])) {
             throw new \InvalidArgumentException("undefined qualifier '$qualifier', use one of the values:"
                 . implode(", ", $qualifiers));
         }
