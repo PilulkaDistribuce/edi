@@ -1,7 +1,7 @@
 <?php
 /** Removes empty elements from some XML file */
 if (!isset($argv[1])) {
-    echo "usage: php removeEmptyElements.php XMLFILE\n";
+    echo "usage: php xmlRearrange.php XMLFILE\n";
     exit(1);
 }
 $xmlFile = $argv[1];
@@ -13,11 +13,15 @@ if (!$doc->load($xmlFile)) {
     exit(1);
 }
 
+// remove empty elements
 $xpath = new DOMXPath($doc);
 foreach( $xpath->query('//*[not(node())]') as $node ) {
     $node->parentNode->removeChild($node);
 }
 
 $doc->formatOutput = true;
-$doc->save($xmlFile);
+$xml = $doc->saveXML();
+// adjust price elements: 50.000 => 50
+$xml = preg_replace("/(quantity|price_ordered|price|rate|total)>([0-9]+)\.0+</", "$1>$2<", $xml);
+file_put_contents($xmlFile, $xml);
 
