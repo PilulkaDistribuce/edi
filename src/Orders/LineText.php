@@ -3,8 +3,14 @@ namespace Pilulka\Edi\Orders;
 
 class LineText
 {
-    private $texts = array();
+    /**
+     * @var array there are 5 texts one is mandatory
+     */
+    private $texts;
 
+    /**
+     * @param string $text1
+     */
     public function __construct($text1)
     {
         $this->addText($text1);
@@ -47,4 +53,3 @@ class LineText
         }
     }
 }
-

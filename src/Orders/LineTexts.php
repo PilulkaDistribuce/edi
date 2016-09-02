@@ -15,6 +15,8 @@ class LineTexts
 
     public function fillXml(\SimpleXMLElement $collectionElement)
     {
+        if (!$this->texts) return;
+
         foreach ($this->texts as $index => $text) {
             $text->fillXml($index + 1, $collectionElement->addChild("text"));
         }
