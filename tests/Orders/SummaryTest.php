@@ -21,6 +21,7 @@ class SummaryTest extends \PHPUnit_Framework_TestCase
 <?xml version="1.0" encoding="UTF-8"?>
 <summary>
     <price_ordered>990</price_ordered>
+    <items_price>990</items_price>
     <total_allowance_rate>30</total_allowance_rate>
     <total_allowance>33</total_allowance>
     <number_of_items>3</number_of_items>

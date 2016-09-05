@@ -33,7 +33,7 @@ class PartnerTest extends \PHPUnit_Framework_TestCase
     <party_name>MIKEL a.s.</party_name>
     <street>Drhova 50</street>
     <place>Brno</place>
-    <postCode>625 00</postCode>
+    <postcode>625 00</postcode>
     <country_code>CZ</country_code>
     <country_name>Česká Republika</country_name>
     <company_id>38412458</company_id>

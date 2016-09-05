@@ -22,13 +22,13 @@ class LineTextsTest extends \PHPUnit_Framework_TestCase
 <line_texts>
     <text>
         <text_number>1</text_number>
-        <text1>text1</text1>
-        <text2>text2</text2>
+        <text_1>text1</text_1>
+        <text_2>text2</text_2>
     </text>
     <text>
         <text_number>2</text_number>
-        <text1>text1</text1>
-        <text2>text2</text2>
+        <text_1>text1</text_1>
+        <text_2>text2</text_2>
     </text>
 </line_texts> 
 XML

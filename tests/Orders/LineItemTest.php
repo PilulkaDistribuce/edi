@@ -50,10 +50,10 @@ class LineItemTest extends \PHPUnit_Framework_TestCase
     <expiry_remaining>14</expiry_remaining>
     <expiry_remaining_qualifier>804</expiry_remaining_qualifier>
     <article_name>Ovocný čaj</article_name>
-    <gross_price>100.5</gross_price>
-    <allowance_rate>2.2</allowance_rate>
-    <allowance_total>3.2</allowance_total>
-    <net_price>97.3</net_price>
+    <gross_price>100.50</gross_price>
+    <allowance_rate>2.20</allowance_rate>
+    <allowance_total>3.20</allowance_total>
+    <net_price>97.30</net_price>
     <specification>specification info</specification>
     <promotion_deal>promotion deal info</promotion_deal>
     <reference_number_free>2222</reference_number_free>
