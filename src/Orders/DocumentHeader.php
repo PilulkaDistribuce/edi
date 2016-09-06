@@ -12,6 +12,9 @@ class DocumentHeader
     const TRANSPORT_MODE_CUSTOMER = "O";
     const TRANSPORT_MODE_SUPPLIER = "D";
 
+    const TYPE_ORDER = 220;
+    const TYPE_URGENT_ORDER = 224;
+
     /**
      * @var string
      */
@@ -114,6 +117,10 @@ class DocumentHeader
 
     public function setType($type)
     {
+        if ($type != self::TYPE_ORDER && $type != self::TYPE_URGENT_ORDER) {
+            throw new \InvalidArgumentException("type must be one of the values: "
+                . self::TYPE_ORDER . ", " . self::TYPE_URGENT_ORDER);
+        }
         $maxLength = 3;
         if (strlen($type) > $maxLength) {
             throw new \InvalidArgumentException("length of type must be <= $maxLength");
