@@ -9,7 +9,7 @@ class ExporterTest extends \PHPUnit_Framework_TestCase
     {
         $workingDirectory = __DIR__ . "/../fixtures/exportDir";
         if (!file_exists($workingDirectory) && !mkdir($workingDirectory)) {
-            throw new RuntimeException("cannot create directory '$workingDirectory', check permissions") ;
+            throw new \RuntimeException("cannot create directory '$workingDirectory', check permissions") ;
         }
         $this->workingDirectory = $workingDirectory;
         parent::setUp();
