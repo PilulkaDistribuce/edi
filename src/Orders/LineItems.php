@@ -6,7 +6,7 @@ class LineItems
     /**
      * @var LineItem[]
      */
-    private $items;
+    private $items = [];
 
     public function addItem(LineItem $item)
     {
@@ -18,5 +18,10 @@ class LineItems
         foreach ($this->items as $index => $item) {
             $item->fillXMl($index + 1, $collectionElement->addChild("item"));
         }
+    }
+
+    public function getCount()
+    {
+        return count($this->items);
     }
 }
