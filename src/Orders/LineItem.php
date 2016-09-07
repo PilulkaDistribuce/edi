@@ -85,8 +85,8 @@ class LineItem
     public function __construct($gtin, $quantity, $articleName)
     {
         // gtin
-        if (!is_numeric($gtin)) {
-            throw new \InvalidArgumentException("gtin must be an number");
+        if (!$gtin || !is_numeric($gtin)) {
+            throw new \InvalidArgumentException("gtin is mandatory and must be an number");
         }
         $maxLength = 25;
         if (strlen($gtin) > $maxLength) {

@@ -49,8 +49,8 @@ class Partner
         $this->qualifier = $qualifier;
 
         $maxLength = 17;
-        if (strlen($ean) > $maxLength) {
-            throw new \InvalidArgumentException("length of EAN must be <= $maxLength");
+        if (!$ean || !is_numeric($ean) || strlen($ean) > $maxLength) {
+            throw new \InvalidArgumentException("EAN code is mandatory, length of it must be <= $maxLength");
         }
         $this->ean = $ean;
     }
