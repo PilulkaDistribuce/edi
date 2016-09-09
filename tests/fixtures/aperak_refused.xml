@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biztalk_1>					
+    <header>				
+        <delivery>			
+            <to>		
+                <state>	
+                    <referenceID></referenceID>
+                    <ediid>8594010260001</ediid>
+                </state>	
+            </to>		
+            <from>		
+                <state>	
+                    <referenceID></referenceID>
+                    <ediid>8594010120008</ediid>
+                </state>	
+            </from>		
+        </delivery>			
+        <manifest>			
+            <document>		
+                <userdocid>6348504139</userdocid>	
+                <name>xml_document</name>	
+                <description>XML zprava ORION</description>	
+            </document>		
+        </manifest>			
+    </header>				
+    <body>				
+        <xml_document type_identifier="APERAK">			
+            <form_header>		
+                <cis_zpr_aper>6348504139</cis_zpr_aper>	
+                <kod_potvrz>27</kod_potvrz>	
+                <dat_vyst_zpr>2013-11-07</dat_vyst_zpr>
+                <cas_vyst_zpr>11:07:00</cas_vyst_zpr>	
+                <druh_dok>IV</druh_dok>	
+                <cis_dkl_edi>51422678</cis_dkl_edi>	
+                <ref_cis_dok>201388511</ref_cis_dok>	
+                <dat_ref_cis_dok>2013-11-05</dat_ref_cis_dok>	
+                <ean_kup>8594010120008</ean_kup>	
+                <jmeno_kup>MIKEL a.s.</jmeno_kup>	
+                <ean_dod>8594010260001</ean_dod>	
+                <jmeno_dod>Koloniál s.r.o.</jmeno_dod>	
+            </form_header>		
+            <line_items>		
+                <item>	
+                    <cis_r>1</cis_r>
+                    <kod_chyby>1144</kod_chyby>
+                    <txt_chyby_1>Chybí IČO dodavatele</txt_chyby_1>
+                    <txt_chyby_2></txt_chyby_2>
+                    <txt_chyby_3></txt_chyby_3>
+                    <txt_chyby_4></txt_chyby_4>
+                    <txt_chyby_5></txt_chyby_5>
+                </item>	
+            </line_items>		
+        </xml_document>			
+    </body>				
+</biztalk_1>					
+
