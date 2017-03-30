@@ -233,10 +233,10 @@ class Partner
         if ($this->companyId) {
             $element->addChild("company_id", $this->companyId);
         }
-        if ($this->taxId) {
+        if (isset($this->taxId)) {
             $element->addChild("tax_id", $this->taxId);
         }
-        if ($this->vatId) {
+        if (isset($this->vatId)) {
             $element->addChild("vat_id", $this->vatId);
         }
         if ($this->registration) {
