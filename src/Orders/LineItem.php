@@ -400,4 +400,190 @@ class LineItem
             $element->addChild("free_text", $this->freeText);
         }
     }
+
+    /**
+     * @return int|string
+     */
+    public function getGtin()
+    {
+        return $this->gtin;
+    }
+
+    /**
+     * @return int|string
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArticleName()
+    {
+        return $this->articleName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSupplierArticleId()
+    {
+        return $this->supplierArticleId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBuyerArticleId()
+    {
+        return $this->buyerArticleId;
+    }
+
+    /**
+     * @return \stdClass
+     */
+    public function getComplementaryArticle()
+    {
+        return $this->complementaryArticle;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuantityType()
+    {
+        return $this->quantityType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeliveryType()
+    {
+        return $this->deliveryType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUnit()
+    {
+        return $this->unit;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumberOfUnits()
+    {
+        return $this->numberOfUnits;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDeliveryDate()
+    {
+        return $this->deliveryDate;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isUseDeliveryTime()
+    {
+        return $this->useDeliveryTime;
+    }
+
+    /**
+     * @return int
+     */
+    public function getExpiryRemaining()
+    {
+        return $this->expiryRemaining;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExpiryRemainingQualifier()
+    {
+        return $this->expiryRemainingQualifier;
+    }
+
+    /**
+     * @return float
+     */
+    public function getGrossPrice()
+    {
+        return $this->grossPrice;
+    }
+
+    /**
+     * @return float
+     */
+    public function getAllowanceRate()
+    {
+        return $this->allowanceRate;
+    }
+
+    /**
+     * @return float
+     */
+    public function getAllowanceTotal()
+    {
+        return $this->allowanceTotal;
+    }
+
+    /**
+     * @return float
+     */
+    public function getNetPrice()
+    {
+        return $this->netPrice;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotalPrice()
+    {
+        return $this->totalPrice;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSpecification()
+    {
+        return $this->specification;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPromotionDeal()
+    {
+        return $this->promotionDeal;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReferenceNumberFree()
+    {
+        return $this->referenceNumberFree;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFreeText()
+    {
+        return $this->freeText;
+    }
+
+
 }
