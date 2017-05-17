@@ -24,4 +24,9 @@ class LineItems
     {
         return count($this->items);
     }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
 }
