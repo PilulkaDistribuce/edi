@@ -12,6 +12,7 @@ class Item
     private $quantity;
     private $unit;
     private $vat_rate;
+    private $price;
 
     public function __construct(\SimpleXMLElement $xml)
     {
@@ -26,6 +27,7 @@ class Item
         $this->quantity = (float)$xml->quantity;
         $this->unit = (string)$xml->unit;
         $this->vat_rate = (float)$xml->vat_rate;
+        $this->price = (float)$xml->price;
     }
 
     /**
@@ -84,5 +86,12 @@ class Item
         return $this->vat_rate;
     }
 
+    /**
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
 
 }
