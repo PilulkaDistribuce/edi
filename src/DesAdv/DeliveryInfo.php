@@ -72,6 +72,15 @@ class DeliveryInfo
         return $this->documentNumber;
     }
 
+    /**
+     * @return string
+     */
+    public function getOrderNumber()
+    {
+        return $this->orderNumber;
+    }
+
+
     public function getPurpose() {
         if (!$this->purpose) return;
 
