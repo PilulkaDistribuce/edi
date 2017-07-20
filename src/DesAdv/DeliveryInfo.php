@@ -18,6 +18,11 @@ class DeliveryInfo
     private $documentNumber;
 
     /**
+     * @var string
+     */
+    private $orderNumber;
+
+    /**
      * one of the PURPOSE_* constants
      * @var int
      */
@@ -39,6 +44,11 @@ class DeliveryInfo
             throw new \InvalidArgumentException("doc_number isn't presented");
         }
         $this->documentNumber = $documentNumber;
+
+        if ((!$orderNumber = (string)$xml->order_number)) {
+            throw new \InvalidArgumentException("order_number isn't presented");
+        }
+        $this->orderNumber = $orderNumber;
 
         if ((int)$xml->doc_type != self::DOCUMENT_TYPE) {
             throw new \InvalidArgumentException("it seems that doc_type isn't expected value " . self::DOCUMENT_TYPE);
