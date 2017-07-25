@@ -146,14 +146,14 @@ class Aperak
         $deliveryXml = $headerXml->addChild('delivery');
 
         $to = $deliveryXml->addChild('to');
-        $state = $to->addChild('state');
-        $state->addChild('referenceID', $delivery->getToReferenceID());
-        $state->addChild('ediid', $delivery->getToEdiid());
+        $stateTo = $to->addChild('state');
+        $stateTo->addChild('referenceID', $delivery->getToReferenceID());
+        $stateTo->addChild('ediid', $delivery->getToEdiid());
 
         $from = $deliveryXml->addChild('from');
-        $state = $from->addChild('state');
-        $state->addChild('referenceID', $deliveryXml->getFromReferenceID());
-        $state->addChild('ediid', $deliveryXml->getFromEdiid());
+        $stateFrom = $from->addChild('state');
+        $stateFrom->addChild('referenceID', $delivery->getFromReferenceID());
+        $stateFrom->addChild('ediid', $delivery->getFromEdiid());
 
         $manifest = $headerXml->addChild('manifest');
         $document = $manifest->addChild('document');
@@ -170,14 +170,10 @@ class Aperak
         $form_header->addChild('dat_vyst_zpr', $formHeader->getDatVystZpr());
         $form_header->addChild('cas_vyst_zpr', $formHeader->getCasVystZpr());
         $form_header->addChild('druh_dok', $formHeader->getDruhDok());
-        $form_header->addChild('cis_dkl_edi', $formHeader->getCisDklEdi());
-        $form_header->addChild('ref_cis_dok', $formHeader->getRefCisDok());
         $form_header->addChild('ref_cis_dok', $formHeader->getRefCisDok());
         $form_header->addChild('dat_ref_cis_dok', $formHeader->getDatRefCisDok());
         $form_header->addChild('ean_kup', $formHeader->getEanKup());
-        $form_header->addChild('jmeno_kup', $formHeader->getJmenoKup());
         $form_header->addChild('ean_dod', $formHeader->getEanDod());
-        $form_header->addChild('jmeno_dod', $formHeader->getJmenoDod());
 
         return $element;
     }

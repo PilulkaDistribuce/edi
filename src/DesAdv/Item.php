@@ -28,6 +28,7 @@ class Item
         $this->unit = (string)$xml->unit;
         $this->vat_rate = (float)$xml->vat_rate;
         $this->price = (float)$xml->price;
+
     }
 
     /**
@@ -93,5 +94,6 @@ class Item
     {
         return $this->price;
     }
+
 
 }

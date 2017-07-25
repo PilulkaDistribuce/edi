@@ -80,7 +80,6 @@ class DeliveryInfo
         return $this->orderNumber;
     }
 
-
     public function getPurpose() {
         if (!$this->purpose) return;
 
