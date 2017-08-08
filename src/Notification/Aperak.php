@@ -172,8 +172,22 @@ class Aperak
         $form_header->addChild('druh_dok', $formHeader->getDruhDok());
         $form_header->addChild('ref_cis_dok', $formHeader->getRefCisDok());
         $form_header->addChild('dat_ref_cis_dok', $formHeader->getDatRefCisDok());
+        $form_header->addChild('cis_dkl_edi', $formHeader->getCisDklEdi());
         $form_header->addChild('ean_kup', $formHeader->getEanKup());
         $form_header->addChild('ean_dod', $formHeader->getEanDod());
+
+
+        $line_items = $xml_document->addChild('line_items');
+        $item = $line_items->addChild('item');
+        $item->addChild('cis_r', 1);
+
+        if($formHeader->getKodPotvrz() == FormHeader::TYPE_OK) {
+            $item->addChild('kod_chyby', 1);
+            $item->addChild('txt_chyby_1', 'Doklad byl přijat do systému');
+        } else {
+            $item->addChild('kod_chyby', 0);
+            $item->addChild('txt_chyby_1', 'Doklad nebyl přijat do systému. Chybí IČO dodavatele');
+        }
 
         return $element;
     }
