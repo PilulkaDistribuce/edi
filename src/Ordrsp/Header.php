@@ -1,6 +1,6 @@
 <?php
 
-namespace Pilulka\Edi\Orders;
+namespace Pilulka\Edi\Ordrsp;
 
 class Header extends \Pilulka\Edi\Message\Header
 {

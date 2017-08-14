@@ -1,8 +1,6 @@
 <?php
 
-
-namespace Pilulka\Edi\Orders;
-
+namespace Pilulka\Edi\Ordrsp;
 
 class Ordrsp
 {
@@ -49,6 +47,4 @@ class Ordrsp
     {
         return $this->items;
     }
-
-
 }
