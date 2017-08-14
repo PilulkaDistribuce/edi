@@ -3,7 +3,7 @@ namespace Pilulka\Edi\Ordrsp;
 
 class DeliveryInfo
 {
-    const DOCUMENT_TYPE = 351;
+    const DOCUMENT_TYPE = 231;
 
     const PURPOSE_ORIGINAL = 9;
     const PURPOSE_CANCEL = 1;
