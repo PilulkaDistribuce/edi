@@ -2,3 +2,4 @@ vendor
 .idea
 composer.lock
 tests/fixtures/exportDir/*
+.php_cs.cache
