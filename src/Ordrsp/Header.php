@@ -9,7 +9,7 @@ class Header extends \Pilulka\Edi\Message\Header
     {
         parent::__construct($xml);
 
-        if ((string)$this->getMessageType() != "DESADV") {
+        if ((string)$this->getMessageType() != "ORDRSP") {
             throw new \InvalidArgumentException("it seems that message type isn't DESADV");
         }
 
