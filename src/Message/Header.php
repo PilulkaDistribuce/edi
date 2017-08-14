@@ -37,10 +37,7 @@ class Header
 
     public function __construct(\SimpleXMLElement $xml)
     {
-//        if ((string)$xml->message_type != "DESADV") {
-//            throw new \InvalidArgumentException("it seems that message type isn't DESADV");
-//        }
-        if (!($message_type = (string)$xml->$message_type)) {
+        if (!($message_type = (string)$xml->message_type)) {
             throw new \InvalidArgumentException("message_type isn't presented");
         }
         $this->message_type = $message_type;
