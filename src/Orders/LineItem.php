@@ -371,7 +371,7 @@ class LineItem
         if ($this->expiryRemainingQualifier) {
             $element->addChild("expiry_remaining_qualifier", $this->expiryRemainingQualifier);
         }
-        $element->addChild("article_name", $this->articleName);
+        $element->addChild("article_name", htmlspecialchars($this->articleName));
         if ($this->grossPrice) {
             $element->addChild("gross_price", self::formatPrice($this->grossPrice));
         }

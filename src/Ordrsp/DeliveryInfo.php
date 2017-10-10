@@ -5,12 +5,9 @@ class DeliveryInfo
 {
     const DOCUMENT_TYPE = 231;
 
-    const PURPOSE_ORIGINAL = 9;
-    const PURPOSE_CANCEL = 1;
-    const PURPOSE_COMPENSATION = 5;
-    const PURPOSE_DUPLICATE = 7;
-    const PURPOSE_COPY = 31;
-    const PURPOSE_ADDITION = 43;
+    const PURPOSE_ORIGINAL = 29;
+    const PURPOSE_CANCEL = 27;
+    const PURPOSE_UPDATE = 4;
 
     /**
      * @var string
@@ -90,17 +87,8 @@ class DeliveryInfo
             case self::PURPOSE_CANCEL:
                 return self::PURPOSE_CANCEL;
                 break;
-            case self::PURPOSE_COMPENSATION:
-                return self::PURPOSE_COMPENSATION;
-                break;
-            case self::PURPOSE_DUPLICATE:
-                return self::PURPOSE_DUPLICATE;
-                break;
-            case self::PURPOSE_COPY:
-                return self::PURPOSE_COPY;
-                break;
-            case self::PURPOSE_ADDITION:
-                return self::PURPOSE_ADDITION;
+            case self::PURPOSE_UPDATE:
+                return self::PURPOSE_UPDATE;
                 break;
             default:
                 throw new \UnexpectedValueException("unknown purpose (doc_function): '$this->purpose'");
@@ -119,4 +107,6 @@ class DeliveryInfo
     {
         return $this->deliveryDate;
     }
+
+
 }
