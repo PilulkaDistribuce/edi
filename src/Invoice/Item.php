@@ -4,6 +4,8 @@
 namespace Pilulka\Edi\Invoice;
 
 
+use Dibi\DateTime;
+
 class Item
 {
     /** @var  \SimpleXMLElement */
@@ -168,7 +170,7 @@ class Item
      */
     public function getArticleGtin()
     {
-        return $this->articleGtin;
+        return (string)$this->articleGtin;
     }
 
     /**
@@ -186,7 +188,7 @@ class Item
      */
     public function getArticleIdSupplier()
     {
-        return $this->articleIdSupplier;
+        return (string)$this->articleIdSupplier;
     }
 
     /**
@@ -204,7 +206,7 @@ class Item
      */
     public function getArticleIdBuyer()
     {
-        return $this->articleIdBuyer;
+        return (string)$this->articleIdBuyer;
     }
 
     /**
@@ -222,7 +224,7 @@ class Item
      */
     public function getArticleIdAdd()
     {
-        return $this->articleIdAdd;
+        return (string)$this->articleIdAdd;
     }
 
     /**
@@ -240,7 +242,7 @@ class Item
      */
     public function getArticleName()
     {
-        return $this->articleName;
+        return (string)$this->articleName;
     }
 
     /**
@@ -258,7 +260,7 @@ class Item
      */
     public function getItemType()
     {
-        return $this->itemType;
+        return (string)$this->itemType;
     }
 
     /**
@@ -276,7 +278,7 @@ class Item
      */
     public function getQuantity()
     {
-        return $this->quantity;
+        return (float)$this->quantity;
     }
 
     /**
@@ -294,7 +296,7 @@ class Item
      */
     public function getGrossPrice()
     {
-        return $this->grossPrice;
+        return (float)$this->grossPrice;
     }
 
     /**
@@ -312,7 +314,7 @@ class Item
      */
     public function getAllowanceRate()
     {
-        return $this->allowanceRate;
+        return (float)$this->allowanceRate;
     }
 
     /**
@@ -330,7 +332,7 @@ class Item
      */
     public function getAllowanceTotal()
     {
-        return $this->allowanceTotal;
+        return (float)$this->allowanceTotal;
     }
 
     /**
@@ -348,7 +350,7 @@ class Item
      */
     public function getNetPrice()
     {
-        return $this->netPrice;
+        return (float)$this->netPrice;
     }
 
     /**
@@ -366,7 +368,7 @@ class Item
      */
     public function getTotalPrice()
     {
-        return $this->totalPrice;
+        return (float)$this->totalPrice;
     }
 
     /**
@@ -384,7 +386,7 @@ class Item
      */
     public function getVatRate()
     {
-        return $this->vatRate;
+        return (float)$this->vatRate;
     }
 
     /**
@@ -402,7 +404,7 @@ class Item
      */
     public function getVatTotal()
     {
-        return $this->vatTotal;
+        return (float)$this->vatTotal;
     }
 
     /**
@@ -420,7 +422,7 @@ class Item
      */
     public function getTotalPriceVat()
     {
-        return $this->totalPriceVat;
+        return (float)$this->totalPriceVat;
     }
 
     /**
@@ -438,7 +440,7 @@ class Item
      */
     public function getUnit()
     {
-        return $this->unit;
+        return (string)$this->unit;
     }
 
     /**
@@ -456,7 +458,7 @@ class Item
      */
     public function getNumberOfUnits()
     {
-        return $this->numberOfUnits;
+        return (float)$this->numberOfUnits;
     }
 
     /**
@@ -474,7 +476,7 @@ class Item
      */
     public function getExciseDutyGroup()
     {
-        return $this->exciseDutyGroup;
+        return (string)$this->exciseDutyGroup;
     }
 
     /**
@@ -492,7 +494,7 @@ class Item
      */
     public function getExciseDutyBasis()
     {
-        return $this->exciseDutyBasis;
+        return (float)$this->exciseDutyBasis;
     }
 
     /**
@@ -510,7 +512,7 @@ class Item
      */
     public function getExciseDuty()
     {
-        return $this->exciseDuty;
+        return (float)$this->exciseDuty;
     }
 
     /**
@@ -528,7 +530,7 @@ class Item
      */
     public function getReverseCharge()
     {
-        return $this->reverseCharge;
+        return (string)$this->reverseCharge;
     }
 
     /**
@@ -546,7 +548,7 @@ class Item
      */
     public function getCountryOfOrigin()
     {
-        return $this->countryOfOrigin;
+        return (string)$this->countryOfOrigin;
     }
 
     /**
@@ -564,7 +566,7 @@ class Item
      */
     public function getSpecialCondition()
     {
-        return $this->specialCondition;
+        return (string)$this->specialCondition;
     }
 
     /**
@@ -582,7 +584,7 @@ class Item
      */
     public function getDeliveryDate()
     {
-        return $this->deliveryDate;
+        return new \DateTime($this->deliveryDate);
     }
 
     /**
@@ -600,7 +602,7 @@ class Item
      */
     public function getOrderNumber()
     {
-        return $this->orderNumber;
+        return (string)$this->orderNumber;
     }
 
     /**
@@ -618,7 +620,7 @@ class Item
      */
     public function getOrderNumberDate()
     {
-        return $this->orderNumberDate;
+        return new \DateTime($this->orderNumberDate);
     }
 
     /**
@@ -636,7 +638,7 @@ class Item
      */
     public function getOrderNumberTime()
     {
-        return $this->orderNumberTime;
+        return new $this->orderNumberTime;
     }
 
     /**
@@ -654,7 +656,7 @@ class Item
      */
     public function getSupplierOrderNumber()
     {
-        return $this->supplierOrderNumber;
+        return (string)$this->supplierOrderNumber;
     }
 
     /**
@@ -672,7 +674,7 @@ class Item
      */
     public function getSupplierOrderNumberDate()
     {
-        return $this->supplierOrderNumberDate;
+        return new \DateTime($this->supplierOrderNumberDate);
     }
 
     /**

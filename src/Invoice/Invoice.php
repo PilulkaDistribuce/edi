@@ -9,9 +9,12 @@ class Invoice
      */
     private $xmlMessage;
 
-    public function __construct(\SimpleXMLElement $xml = null)
+    private $xmlFile = null;
+
+    public function __construct(\SimpleXMLElement $xml, $xmlFile = null)
     {
         $this->xmlMessage = $xml;
+        $this->xmlFile = $xmlFile;
     }
 
     /**
@@ -48,4 +51,13 @@ class Invoice
     {
         return new Summary($this->xmlMessage->body->summary);
     }
+
+    /**
+     * @return null
+     */
+    public function getXmlFile()
+    {
+        return $this->xmlFile;
+    }
+
 }
