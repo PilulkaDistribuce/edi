@@ -243,10 +243,10 @@ class DocumentHeader
         if ($this->useIssueTime) {
             $element->addChild("doc_time_of_issue", $this->issueDate->format("G:i:s"));
         }
-//        $element->addChild("delivery_date", $this->deliveryDate->format("Y-m-d"));
-//        if ($this->useDeliveryTime) {
-//            $element->addChild("delivery_time", $this->deliveryDate->format("G:i:s"));
-//        }
+        $element->addChild("delivery_date", $this->deliveryDate->format("Y-m-d"));
+        if ($this->useDeliveryTime) {
+            $element->addChild("delivery_time", $this->deliveryDate->format("G:i:s"));
+        }
         if ($this->deliveryDatePurpose) {
             $element->addChild("delivery_type", $this->deliveryDatePurpose);
         }
