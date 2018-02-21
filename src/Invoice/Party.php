@@ -36,7 +36,7 @@ class Party
     private $variableSymbol;
     private $specialSymbol;
 
-    private $requiredParameters = ['party_qualifier', 'party_id'];
+    private $requiredParameters = ['party_qualifier'];
 
     /**
      * Party constructor.
