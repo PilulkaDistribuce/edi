@@ -65,7 +65,7 @@ class Item
     private $allowancesAndCharges;
     private $party;
 
-    private $requiredParameters = ['item_number', 'article_gtin', 'article_name', 'allowance_total'];
+    private $requiredParameters = ['item_number', 'article_gtin', 'article_name'];
 
     /**
      * Item constructor.
