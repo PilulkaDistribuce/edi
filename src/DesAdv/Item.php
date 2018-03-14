@@ -95,5 +95,84 @@ class Item
         return $this->price;
     }
 
+    /**
+     * @param int $item_number
+     * @return Item
+     */
+    public function setItemNumber($item_number)
+    {
+        $this->item_number = $item_number;
+        return $this;
+    }
 
+    /**
+     * @param int $article_gtin
+     * @return Item
+     */
+    public function setArticleGtin($article_gtin)
+    {
+        $this->article_gtin = $article_gtin;
+        return $this;
+    }
+
+    /**
+     * @param string $article_id_supplier
+     * @return Item
+     */
+    public function setArticleIdSupplier($article_id_supplier)
+    {
+        $this->article_id_supplier = $article_id_supplier;
+        return $this;
+    }
+
+    /**
+     * @param string $article_name
+     * @return Item
+     */
+    public function setArticleName($article_name)
+    {
+        $this->article_name = $article_name;
+        return $this;
+    }
+
+    /**
+     * @param float $quantity
+     * @return Item
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+        return $this;
+    }
+
+    /**
+     * @param string $unit
+     * @return Item
+     */
+    public function setUnit($unit)
+    {
+        $this->unit = $unit;
+        return $this;
+    }
+
+    /**
+     * @param float $vat_rate
+     * @return Item
+     */
+    public function setVatRate($vat_rate)
+    {
+        $this->vat_rate = $vat_rate;
+        return $this;
+    }
+
+    /**
+     * @param float $price
+     * @return Item
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+        return $this;
+    }
+    
 }
