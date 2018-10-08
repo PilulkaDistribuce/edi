@@ -65,11 +65,12 @@ class Item
     private $allowancesAndCharges;
     private $party;
 
-    private $requiredParameters = ['item_number', 'article_gtin', 'article_name'];
+    private $requiredParameters = ['item_number', 'article_gtin'];
 
     /**
      * Item constructor.
      * @param \SimpleXMLElement $xml
+     * @throws \Exception
      */
     public function __construct(\SimpleXMLElement $xml)
     {
@@ -79,6 +80,9 @@ class Item
         $this->fillData();
     }
 
+    /**
+     * @throws \Exception
+     */
     private function validate()
     {
         foreach ($this->requiredParameters as $param) {
