@@ -1,4 +1,5 @@
 <?php
+
 namespace Pilulka\Edi\Orders;
 
 class LineItem
@@ -164,7 +165,7 @@ class LineItem
         if ($type != self::QUANTITY_TYPE_ORDERED && $type !== self::QUANTITY_TYPE_FREE
             && $type = self::QUANTITY_TYPE_PROMO) {
             throw new \InvalidArgumentException("undefined quantity type, use one of values: "
-                . self::QUANTITY_TYPE_PROMO  . ", " . self::QUANTITY_TYPE_ORDERED . ", ", self::QUANTITY_TYPE_ORDERED);
+                . self::QUANTITY_TYPE_PROMO . ", " . self::QUANTITY_TYPE_ORDERED . ", ", self::QUANTITY_TYPE_ORDERED);
         }
         $this->quantityType = $type;
     }
@@ -338,8 +339,12 @@ class LineItem
     {
         $element->addChild("item_number", $number);
         $element->addChild("article_gtin", $this->gtin);
-        if ($this->supplierArticleId) $element->addChild("article_id_supplier", $this->supplierArticleId);
-        if ($this->buyerArticleId) $element->addChild("article_id_buyer", $this->buyerArticleId);
+        if ($this->supplierArticleId) {
+            $element->addChild("article_id_supplier", $this->supplierArticleId);
+        }
+        if ($this->buyerArticleId) {
+            $element->addChild("article_id_buyer", $this->buyerArticleId);
+        }
         if ($this->complementaryArticle) {
             $complementaryElement = $element->addChild("article_id_add");
             $complementaryElement->addChild("article_id_type", $this->complementaryArticle->type);
@@ -371,7 +376,8 @@ class LineItem
         if ($this->expiryRemainingQualifier) {
             $element->addChild("expiry_remaining_qualifier", $this->expiryRemainingQualifier);
         }
-        $element->addChild("article_name", htmlspecialchars($this->articleName));
+        $articleName = htmlspecialchars($this->articleName);
+        $element->addChild("article_name", iconv(mb_detect_encoding($articleName), "UTF-8", $articleName));
         if ($this->grossPrice) {
             $element->addChild("gross_price", self::formatPrice($this->grossPrice));
         }
