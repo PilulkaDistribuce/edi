@@ -115,7 +115,7 @@ class LineItem
 
     public function setSupplierArticleId($id)
     {
-        $maxLength = 25;
+        $maxLength = 40;
         if (strlen($id) > $maxLength) {
             throw new \InvalidArgumentException("length of article ID by supplier must be <= $maxLength");
         }
