@@ -87,7 +87,7 @@ class LineItem
     {
         // gtin
         if (!$gtin) {
-            throw new \InvalidArgumentException("gtin is mandatory and must be an number");
+            throw new \InvalidArgumentException("gtin is mandatory and must be a number - {$gtin} given");
         }
         if (!is_numeric($gtin)) {
             throw new \InvalidArgumentException("Invalid gtin: {$gtin} given.");
