@@ -30,16 +30,12 @@ class Partner
     private $contactPhone;
     private $contactFax;
     private $contactEmail;
-    private $warehouseQualifier;
-    private $warehouseEan;
 
     /**
      * @param string $qualifier
      * @param string $ean
-     * @param string $warehouseQualifier
-     * @param string $warehouseEan
      */
-    public function __construct($qualifier, $ean, $warehouseQualifier = '', $warehouseEan = '')
+    public function __construct($qualifier, $ean)
     {
         if (!in_array($qualifier, $qualifiers = [
             self::QUALIFIER_BUYER, self::QUALIFIER_ORDERED_BY,
@@ -262,10 +258,6 @@ class Partner
         }
         if ($this->contactEmail) {
             $element->addChild("contact_email", $this->contactEmail);
-        }
-        if (strlen($this->warehouseEan) > 4) {
-            $element->addChild("party_qualifier", $this->warehouseQualifier);
-            $element->addChild("party_ean", $this->warehouseEan);
         }
     }
 }
