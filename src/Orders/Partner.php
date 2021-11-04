@@ -264,8 +264,8 @@ class Partner
             $element->addChild("contact_email", $this->contactEmail);
         }
         if (strlen($this->warehouseEan) > 4) {
-            $element->addChild("warehouse_party_qualifier", $this->warehouseQualifier);
-            $element->addChild("warehouse_party_ean", $this->warehouseEan);
+            $element->addChild("party_qualifier", $this->warehouseQualifier);
+            $element->addChild("party_ean", $this->warehouseEan);
         }
     }
 }
