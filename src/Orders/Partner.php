@@ -53,8 +53,6 @@ class Partner
             throw new \InvalidArgumentException("EAN code is mandatory, length of it must be <= $maxLength");
         }
         $this->ean = $ean;
-        $this->warehouseQualifier = $warehouseQualifier;
-        $this->warehouseEan = $warehouseEan;
     }
 
     public function setDescription($text)
