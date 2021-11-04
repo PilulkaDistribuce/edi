@@ -30,12 +30,16 @@ class Partner
     private $contactPhone;
     private $contactFax;
     private $contactEmail;
+    private $warehouseQualifier;
+    private $warehouseEan;
 
     /**
      * @param string $qualifier
      * @param string $ean
+     * @param string $warehouseQualifier
+     * @param string $warehouseEan
      */
-    public function __construct($qualifier, $ean)
+    public function __construct($qualifier, $ean, $warehouseQualifier = '', $warehouseEan = '')
     {
         if (!in_array($qualifier, $qualifiers = [
             self::QUALIFIER_BUYER, self::QUALIFIER_ORDERED_BY,
@@ -53,6 +57,8 @@ class Partner
             throw new \InvalidArgumentException("EAN code is mandatory, length of it must be <= $maxLength");
         }
         $this->ean = $ean;
+        $this->warehouseQualifier = $warehouseQualifier;
+        $this->warehouseEan = $warehouseEan;
     }
 
     public function setDescription($text)
@@ -256,6 +262,10 @@ class Partner
         }
         if ($this->contactEmail) {
             $element->addChild("contact_email", $this->contactEmail);
+        }
+        if (strlen($this->warehouseEan) > 4) {
+            $element->addChild("warehouse_party_qualifier", $this->warehouseQualifier);
+            $element->addChild("warehouse_party_ean", $this->warehouseEan);
         }
     }
 }
